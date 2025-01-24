@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - razor1</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/razor1.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <a asp-area="" asp-page="/Index"><img src="/images/logotyp2.png" alt="logotyp"></a>
+        <p>Dagens datum är: <span id="date-span"></span> </p>
+    </header>
+    <div class="site-container">
+        <div class="nav-container">
+            <nav class="nav">
+                <div class="nav-div">
+                    <ul class="nav-ul">
+                        <li class="nav-li">
+                            <a class="nav-a" asp-area="" asp-page="/Index">Hem</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" asp-area="" asp-page="/Razor">Razor</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" asp-area="" asp-page="/About">Om sidan</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="main-container">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <footer class="footer-container">
+        <div>
+            Av: Johan Magnusson - Kontakta mig via e-post: joma2304@student.miun.se
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

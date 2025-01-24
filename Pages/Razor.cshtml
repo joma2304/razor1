@@ -1,0 +1,44 @@
+﻿@page
+@model MyApp.Namespace.RazorModel
+@{
+    ViewData["Title"] = "Razor";
+}
+@{
+    //Array med kurser
+    string[] courses = { "Webbutveckling I - DT057G",
+"Introduktion till programmering i JavaScript - DT084G",
+"Grafisk teknik för webb - DT200G",
+"Webbanvändbarhet - DT068G",
+"Databaser - DT003G",
+"Frontend-baserad webbutveckling - DT211G",
+"Backend-baserad webbutveckling - DT207G",
+"Programmering i TypeScript - DT208G",
+"Projektledning - IK060G",
+"Programmering i C#.NET - DT071G",
+"Fullstack-utveckling med ramverk - DT193G",
+"Webbutveckling för WordPress - DT209G"};
+
+    var currentDateTime = DateTime.Now; //Hämta datum och tid
+}
+
+@{
+    DateTime today = DateTime.Now; //datum nu
+    int dayAsNumber = (int)today.DayOfWeek; //dagar 0-6 (5 för fredag)
+}
+<div>
+    <h1 class="welcome-h1">Razor</h1>
+    <h3>Information</h3>
+    <p><strong>Datum/Klockslag:</strong> @today.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    @if (dayAsNumber == 5) {
+        <p>Idag är det Fredag!</p>
+    } else {
+        <p>Idag är det inte Fredag!</p>
+    }
+    <p><strong>Kurser som jag läst än så länge:</strong></p>
+    <ul>
+        @foreach (var course in courses) //Loopa igenom array med kruser
+        {
+            <li>@course</li>
+        }
+    </ul>
+</div>
